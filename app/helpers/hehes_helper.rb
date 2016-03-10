@@ -1,0 +1,2 @@
+module HehesHelper
+end
