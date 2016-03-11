@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310085514) do
+ActiveRecord::Schema.define(version: 20160311075417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "hehes", force: :cascade do |t|
-    t.string   "nana"
+  create_table "abs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "microposts", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.string   "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,8 +33,10 @@ ActiveRecord::Schema.define(version: 20160310085514) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password"
+    t.string   "password_digest"
   end
 
 end
