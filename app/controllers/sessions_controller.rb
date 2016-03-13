@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if !current_user.nil?
+      redirect_to current_user
+    end
   end
   
   def create
@@ -7,7 +10,7 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
   		log_in user
       remember user
-  		redirect_to current_user
+  	  redirect_back_or user
 
   	else
   		flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
